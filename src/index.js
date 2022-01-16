@@ -3,10 +3,23 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Chats from './Chat';
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Dashboard from './Dashboard';
+import ChatScreen from './ChatScreen';
 
 ReactDOM.render(
 	<React.StrictMode>
-		<App />
+		<BrowserRouter>
+			<Routes>
+				<Route path="/" element={<App />}>
+					<Route path="chats" element={<Chats />} />
+					<Route path="chatscreen" element={<ChatScreen />} />
+					<Route index element={<Dashboard />} />
+				</Route>
+			</Routes>
+		</BrowserRouter>
 	</React.StrictMode>,
 	document.getElementById('root')
 );
